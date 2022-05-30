@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.196" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/drawable-v24/ic_baseline_delete.xml" value="0.1825" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/drawable-v24/ic_baseline_edit.xml" value="0.1155" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.196" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/drawable/ic_baseline_sync.xml" value="0.1825" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/layout/activity_splash.xml" value="0.2515625" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/layout/detail_task.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/layout/new_task.xml" value="0.33" />
+        <entry key="..\:/Users/Kniewallner/Documents/GMC/Registration/App_V2/Registration/app/src/main/res/layout/task_layout.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
