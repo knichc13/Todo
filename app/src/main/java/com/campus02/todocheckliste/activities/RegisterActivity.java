@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         TextView btn=findViewById(R.id.alreadyHaveAccount);
 
         db = new DatabaseHandler();
-        b1 = (Button)findViewById(R.id.btnlogin);
+        b1 = (Button)findViewById(R.id.btnRegister);
         ed1 = (EditText)findViewById(R.id.inputEmail);
         ed2 = (EditText)findViewById(R.id.inputPassword);
         ed3 = (EditText)findViewById(R.id.inputUsername);
