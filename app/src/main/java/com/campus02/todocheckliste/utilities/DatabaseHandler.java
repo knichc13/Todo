@@ -25,6 +25,7 @@ public class DatabaseHandler {
     }
     private static final String NAME = "toDoListDatabase";
     private static final int VERSION = 1;
+    private String urlbase = "https://localhost:8080";
 
    /*
     //ID, title, completed, (status), public, timestamp, organisatorUserID, LastModifiedUser; LastModi)
@@ -54,7 +55,7 @@ public class DatabaseHandler {
         List<ToDoModel> taskList = new ArrayList<ToDoModel>();
         try {
 
-            URL requestUrl = new URL("https://localhost:8080/tasks/{"+userid+"}");
+            URL requestUrl = new URL(urlbase+"/tasks/{"+userid+"}");
             urlConnection = (HttpURLConnection) requestUrl.openConnection();
             urlConnection.connect(); // no connection is made
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
@@ -111,7 +112,7 @@ public class DatabaseHandler {
         {
 
             // Defined URL  where to send data
-            URL url = new URL("https://localhost:8080/users/login");
+            URL url = new URL(urlbase+"/users/login");
 
             // Send POST data request
 
@@ -186,7 +187,7 @@ public class DatabaseHandler {
         {
 
             // Defined URL  where to send data
-            URL url = new URL("https://localhost:8080/users");
+            URL url = new URL(urlbase+"/users");
 
             // Send POST data request
 
@@ -238,7 +239,7 @@ public class DatabaseHandler {
         HttpURLConnection urlConnection = null;
         try {
 
-            URL requestUrl = new URL("https://localhost:8080/tasks");
+            URL requestUrl = new URL(urlbase+"/tasks");
             urlConnection = (HttpURLConnection) requestUrl.openConnection();
             urlConnection.connect(); // no connection is made
 
@@ -279,7 +280,7 @@ public class DatabaseHandler {
         HttpURLConnection urlConnection = null;
         try {
 
-            URL requestUrl = new URL("https://localhost:8080/tasks/{"+id+"}");
+            URL requestUrl = new URL(urlbase+"/tasks/{"+id+"}");
             urlConnection = (HttpURLConnection) requestUrl.openConnection();
             urlConnection.connect(); // no connection is made
 
@@ -315,7 +316,7 @@ public class DatabaseHandler {
         HttpURLConnection urlConnection = null;
         try {
 
-            URL requestUrl = new URL("https://localhost:8080/tasks/{"+id+"}");
+            URL requestUrl = new URL(urlbase+"/tasks/{"+id+"}");
             urlConnection = (HttpURLConnection) requestUrl.openConnection();
             urlConnection.connect(); // no connection is made
 
@@ -348,7 +349,7 @@ public class DatabaseHandler {
         HttpURLConnection urlConnection = null;
         try {
 
-            URL requestUrl = new URL("https://localhost:8080/tasks/{"+id+"}");
+            URL requestUrl = new URL(urlbase+"/tasks/{"+id+"}");
             urlConnection = (HttpURLConnection) requestUrl.openConnection();
             urlConnection.connect(); // no connection is made
 

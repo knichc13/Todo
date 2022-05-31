@@ -93,7 +93,10 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 Toast toast = Toast.makeText(context, text, duration);
                                 toast.show();
-                                setContentView(R.layout.activity_main);
+                              //  setContentView(R.layout.activity_login);
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                             else
                             {
