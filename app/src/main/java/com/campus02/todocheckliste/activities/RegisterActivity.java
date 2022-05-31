@@ -1,6 +1,7 @@
 package com.campus02.todocheckliste.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -37,6 +38,13 @@ public class RegisterActivity extends AppCompatActivity {
         ed3 = (EditText)findViewById(R.id.inputUsername);
 
         btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+            }
+        });
+
+        b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //startActivity(new Intent(RegisterActivity.this,LoginActivity.class));

@@ -44,6 +44,13 @@ LoginActivity extends AppCompatActivity {
             startHomeActivity();
         }
 
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+            }
+        });
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,7 +165,7 @@ LoginActivity extends AppCompatActivity {
             focusView = ed1;
             cancel = true;
         }
-
+        String data="";
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
@@ -166,14 +173,21 @@ LoginActivity extends AppCompatActivity {
         } else {
             // save data in local shared preferences
             try {
-                String data = db.sendLoginPost(email, password);
-                String[] tempFelddata = data.split("-");
-                saveLoginDetails(email, password, tempFelddata[0], tempFelddata[1]);
-            } catch (UnsupportedEncodingException e) {
+                data = db.sendLoginPost(email, password);
+                } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-
-            startHomeActivity();
+            if(data.length()>0)
+            {
+                String[] tempFelddata = data.split("-");
+                saveLoginDetails(email, password, tempFelddata[0], tempFelddata[1]);
+                startHomeActivity();
+            }
+            else
+            {
+                pushMessage("User nicht vorhanden.");
+                focusView.requestFocus();
+            }
         }
     }
 
