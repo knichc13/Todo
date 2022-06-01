@@ -53,6 +53,9 @@ public class DatabaseHandler {
         StringBuilder result = new StringBuilder();
         HttpURLConnection urlConnection = null;
         List<ToDoModel> taskList = new ArrayList<ToDoModel>();
+
+        Boolean prv = true;
+
         try {
 
             URL requestUrl = new URL(urlbase+"/tasks/{"+userid+"}");
@@ -71,13 +74,32 @@ public class DatabaseHandler {
                     typ.substring(1,typ.length()-1);
                     String wert = lineStrings[1].substring(1,lineStrings[1].length()-2);
 
+
+                    //TODO
+                    //Checken wie es zurückkommt (True groß oder klein?)
+
                     switch (typ)
                     {
                         case "id": task.setId(new Integer(wert)); break;
                         case "title": task.setTask(wert); break;
                         case "desc": task.setTaskDescription(wert); break;
-                        case "completed": task.setStatus(new Integer(wert)); break;
-                        case "public": task.setIsPublic(new Integer(wert)); break;
+                        case "completed": if(wert == "true")
+                        {
+                            task.setStatus(new Integer(1));
+                        }
+                        else
+                        {
+                            task.setStatus(new Integer(0));
+                        }; break;
+                        case "public": if(wert == "true")
+                        {
+                            task.setIsPublic(new Integer(1));
+                        }
+                        else
+                        {
+                            task.setIsPublic(new Integer(0));
+                        };
+                        break;
                         case "originatorUseId": task.setOrginatorID(new Integer(wert)); break;
                         case "lastModifiedUseId": task.setLastModifiedID(new Integer(wert)); break;
                         case "lastModifiedTime": task.setLastModified(lineStrings[1]); break;
@@ -247,9 +269,25 @@ public class DatabaseHandler {
             urlConnection.setRequestProperty("id",task.getId()+"");
             urlConnection.setRequestProperty("title",task.getTask());
             urlConnection.setRequestProperty("desc",task.getTaskDescription());
-            urlConnection.setRequestProperty("completed",task.getStatus()+"");
+            //TODO
+            //Checken wie es zurückkommt (True groß oder klein?)
+            if(task.getStatus()==1)
+            {
+                urlConnection.setRequestProperty("completed","true");
+            }
+            else
+            {
+                urlConnection.setRequestProperty("completed","false");
+            }
+            if(task.getIsPublic()==1)
+            {
+                urlConnection.setRequestProperty("public","true");
+            }
+            else
+            {
+                urlConnection.setRequestProperty("public","false");
+            }
 
-            urlConnection.setRequestProperty("public",task.getIsPublic()+"");
             urlConnection.setRequestProperty("originatorUseId",task.getOrginatorID()+"");
             urlConnection.setRequestProperty("lastModifiedUseId",task.getLastModifiedID()+"");
             urlConnection.setRequestProperty("lastModifiedTime",task.getLastModified());
@@ -286,7 +324,14 @@ public class DatabaseHandler {
 
             urlConnection.setRequestMethod("PUT");
             urlConnection.setRequestProperty("id",id+""); //notwendig?
-            urlConnection.setRequestProperty("completed",status+"");
+            if(status==1)
+            {
+                urlConnection.setRequestProperty("completed","true");
+            }
+            else
+            {
+                urlConnection.setRequestProperty("completed","false");
+            }
 
             urlConnection.setDoOutput(true);
 
@@ -324,7 +369,14 @@ public class DatabaseHandler {
             urlConnection.setRequestProperty("id",id+""); //notwendig?
             urlConnection.setRequestProperty("title",task);
             urlConnection.setRequestProperty("desc",text);
-            urlConnection.setRequestProperty("public",publicset+"");
+            if(publicset==1)
+            {
+                urlConnection.setRequestProperty("public","true");
+            }
+            else
+            {
+                urlConnection.setRequestProperty("public","false");
+            }
             urlConnection.setRequestProperty("lastModifiedUseId",modID+"");
             urlConnection.setRequestProperty("lastModifiedTime",datumzeit);
 
